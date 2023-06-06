@@ -28,51 +28,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($genres as $genre)
                     <tr>
-                        <td>1</td>
-                        <td>Drama</td>
-                        <td>Menampilkan cerita yang menggugah emosi para penontonnya dengan berbagai konflik.</td>
+                        <td>{{ $genre['no'] }}</td>
+                        <td>{{ $genre['genre']}}</td>
+                        <td>{{ $genre['deskripsi'] }}</td>
                         <td>
                             <a href="" class="btn btn-sm btn-warning"> Edit</a>
                             <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Crime</td>
-                        <td>Genre sastra yang memfiksionaliskan kejahatan, deteksinya, para penjahatnya dan motof-motif mereka.</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Action</td>
-                        <td>Genre utama dalam film yang satu atau beberapa tokohnya terlibat  dalam tantangan yang memerlukan kekuatan fisik ataupun kemampuan khusus.</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Romance</td>
-                        <td>Karya salah satu genre karya fiksi yang biasanya mengacu pada hubungan romantis antara dua tokoh sebagai fokus utamanya.</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Komedi</td>
-                        <td>Sebuah sub genre dalam bentuk kontempoter dari tragikomedi, terutama di televisi, yang menggabungkan unsur komedi dan drama.</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
+                    </tr>   
+                    @endforeach
                 </tbody>
             </table>
         </div>

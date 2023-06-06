@@ -2,23 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Movie;
+use App\Models\Genres;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MovieController extends Controller
+class GenresController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+        */
+        public function index()
+        {
+            $genres = Genres::all();
 
-   public function index()
-{
-    $movies = Movie::all();
-
-    return view('movies.index', compact('movies'));
-}
-
+    return view('genres.index', compact('genres'));
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -39,7 +37,7 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Movie $movie)
+    public function show(Genres $genres)
     {
         //
     }
@@ -47,7 +45,7 @@ class MovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Movie $movie)
+    public function edit(Genres $genres)
     {
         //
     }
@@ -55,7 +53,7 @@ class MovieController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Movie $movie)
+    public function update(Request $request, Genres $genres)
     {
         //
     }
@@ -63,7 +61,7 @@ class MovieController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Movie $movie)
+    public function destroy(Genres $genres)
     {
         //
     }
