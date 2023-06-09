@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Genres;
+use App\Models\Genre;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class GenresController extends Controller
         */
         public function index()
         {
-            $genres = Genres::all();
+            $genres = Genre::all();
 
     return view('genres.index', compact('genres'));
         }
@@ -23,7 +23,8 @@ class GenresController extends Controller
      */
     public function create()
     {
-        //
+        $genres = genre::all();
+        return view('genres.create', compact('genres'));
     }
 
     /**
@@ -31,13 +32,19 @@ class GenresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedata = $request -> validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        Genre::create($validatedata);
+        return redirect('/genres')->with('success', 'Data berhasil di tambahkan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Genres $genres)
+    public function show(Genre $genres)
     {
         //
     }
@@ -45,7 +52,7 @@ class GenresController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Genres $genres)
+    public function edit(Genre $genres)
     {
         //
     }
@@ -53,7 +60,7 @@ class GenresController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Genres $genres)
+    public function update(Request $request, Genre $genres)
     {
         //
     }
@@ -61,8 +68,9 @@ class GenresController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Genres $genres)
+    public function destroy(Genre $genres)
     {
-        //
+        $genres -> delete();
+        return redirect('/genres')->with('success', 'Data berhasil di hapus');
     }
 }

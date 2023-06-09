@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\GenresController;
-use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,16 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeController::class,'index']);
 
-Route::get('/movies', [MovieController::class, 'index']);
+Route::resource('/movies', MovieController::class);
+Route::resource('/genres', GenresController::class);
+Route::resource('/reviews', ReviewsController::class);
 
-Route::get('/genres', [GenresController::class, 'index']);
-
-Route::get('/reviews', [ReviewsController::class, 'index']);
-
-Route::get('/user', function () {
+Route::get('/users', function () {
     return view('users/index');
 });

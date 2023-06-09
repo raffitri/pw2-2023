@@ -26,15 +26,15 @@
             <form method="POST" action="/movies">
                 @csrf
                 <div>
-                    <label for="judul">Title:</label>
+                    <label for="judul">Title:</label><br>
                     <input type="text" id="judul" name="judul">
                 </div>
                 <div>
-                    <label for="poster">Poster:</label>
+                    <label for="poster">Poster:</label><br>
                     <input type="text" id="poster" name="poster">
                 </div>
                 <div>
-                    <label for="genre">Genre:</label>
+                    <label for="genre">Genre:</label><br>
                     <select id="genre" name="genre_id">
                         @foreach ($genres as $genre)
                         <option value="{{ $genre->id }}">{{ $genre->nama }}</option>
@@ -42,18 +42,18 @@
                     </select>
                 </div>
                 <div>
-                    <label for="negara">Country:</label>
+                    <label for="negara">Country:</label><br>
                     <input type="text" id="negara" name="negara">
                 </div>
                 <div>
-                    <label for="tahun">Year:</label>
+                    <label for="tahun">Year:</label><br>
                     <input type="text" id="tahun" name="tahun">
                 </div>
                 <div>
-                    <label for="rating">Rating:</label>
+                    <label for="rating">Rating:</label><br>
                     <input type="text" id="rating" name="rating">
                 </div>
-                <button type="submit">Add</button>
+                <button type="submit"class="btn btn-sm btn-warning">Add</button>
             </form>
         </div>
     </div>
