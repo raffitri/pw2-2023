@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\GenresController;
 use App\Http\Controllers\HomeController;
@@ -21,9 +22,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class,'index']);
 
-Route::resource('/movies', MovieController::class);
+Route::group(['middleware' => 'auth'], function() {
+    Route::resource('/movies', MovieController::class);
+});
+
 Route::resource('/genres', GenresController::class);
 Route::resource('/reviews', ReviewsController::class);
+
+Route::get('/register', [AuthController::class, 'showRegistrationForm']);
+Route::post('/register', [AuthController::class, 'register']);
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/users', function () {
     return view('users/index');
